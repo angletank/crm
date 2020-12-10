@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.shsxt.crm.dao.UserRoleMapper" >
-  <resultMap id="BaseResultMap" type="com.shsxt.crm.vo.UserRole" >
+<mapper namespace="com.xxxx.crm.dao.UserRoleMapper" >
+  <resultMap id="BaseResultMap" type="com.xxxx.crm.vo.UserRole" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="user_id" property="userId" jdbcType="INTEGER" />
     <result column="role_id" property="roleId" jdbcType="INTEGER" />
@@ -21,13 +21,13 @@
     delete from t_user_role
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.shsxt.crm.vo.UserRole" >
+  <insert id="insert" parameterType="com.xxxx.crm.vo.UserRole" >
     insert into t_user_role (id, user_id, role_id, 
       create_date, update_date)
     values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{roleId,jdbcType=INTEGER}, 
       #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.shsxt.crm.vo.UserRole" >
+  <insert id="insertSelective" parameterType="com.xxxx.crm.vo.UserRole" >
     insert into t_user_role
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -64,7 +64,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.shsxt.crm.vo.UserRole" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.xxxx.crm.vo.UserRole" >
     update t_user_role
     <set >
       <if test="userId != null" >
@@ -82,7 +82,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.shsxt.crm.vo.UserRole" >
+  <update id="updateByPrimaryKey" parameterType="com.xxxx.crm.vo.UserRole" >
     update t_user_role
     set user_id = #{userId,jdbcType=INTEGER},
       role_id = #{roleId,jdbcType=INTEGER},

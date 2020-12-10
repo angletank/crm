@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.shsxt.crm.dao.CusDevPlanMapper" >
-  <resultMap id="BaseResultMap" type="com.shsxt.crm.vo.CusDevPlan" >
+<mapper namespace="com.xxxx.crm.dao.CusDevPlanMapper" >
+  <resultMap id="BaseResultMap" type="com.xxxx.crm.vo.CusDevPlan" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="sale_chance_id" property="saleChanceId" jdbcType="INTEGER" />
     <result column="plan_item" property="planItem" jdbcType="VARCHAR" />
@@ -24,7 +24,7 @@
     delete from t_cus_dev_plan
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.shsxt.crm.vo.CusDevPlan" >
+  <insert id="insert" parameterType="com.xxxx.crm.vo.CusDevPlan" >
     insert into t_cus_dev_plan ( sale_chance_id, plan_item,
       plan_date, exe_affect, create_date,
       update_date, is_valid)
@@ -32,7 +32,7 @@
       #{planDate,jdbcType=TIMESTAMP}, #{exeAffect,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP},
       #{updateDate,jdbcType=TIMESTAMP}, #{isValid,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.shsxt.crm.vo.CusDevPlan" >
+  <insert id="insertSelective" parameterType="com.xxxx.crm.vo.CusDevPlan" >
     insert into t_cus_dev_plan
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -87,7 +87,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.shsxt.crm.vo.CusDevPlan" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.xxxx.crm.vo.CusDevPlan" >
     update t_cus_dev_plan
     <set >
         sale_chance_id = #{saleChanceId,jdbcType=INTEGER},
@@ -99,7 +99,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.shsxt.crm.vo.CusDevPlan" >
+  <update id="updateByPrimaryKey" parameterType="com.xxxx.crm.vo.CusDevPlan" >
     update t_cus_dev_plan
     set sale_chance_id = #{saleChanceId,jdbcType=INTEGER},
       plan_item = #{planItem,jdbcType=VARCHAR},
@@ -112,7 +112,7 @@
   </update>
 
   <!-- 通过营销机会ID查询客户开发项列表 -->
-  <select id="selectByParams" parameterType="com.shsxt.crm.query.CusDevPlanQuery" resultType="com.shsxt.crm.vo.CusDevPlan">
+  <select id="selectByParams" parameterType="com.xxxx.crm.query.CusDevPlanQuery" resultType="com.xxxx.crm.vo.CusDevPlan">
     select
         <include refid="Base_Column_List"/>
      from

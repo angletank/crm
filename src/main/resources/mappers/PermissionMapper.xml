@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.shsxt.crm.dao.PermissionMapper" >
-  <resultMap id="BaseResultMap" type="com.shsxt.crm.vo.Permission" >
+<mapper namespace="com.xxxx.crm.dao.PermissionMapper" >
+  <resultMap id="BaseResultMap" type="com.xxxx.crm.vo.Permission" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="role_id" property="roleId" jdbcType="INTEGER" />
     <result column="module_id" property="moduleId" jdbcType="INTEGER" />
@@ -22,7 +22,7 @@
     delete from t_permission
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.shsxt.crm.vo.Permission" >
+  <insert id="insert" parameterType="com.xxxx.crm.vo.Permission" >
     insert into t_permission (id, role_id, module_id, 
       acl_value, create_date, update_date
       )
@@ -30,7 +30,7 @@
       #{aclValue,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.shsxt.crm.vo.Permission" >
+  <insert id="insertSelective" parameterType="com.xxxx.crm.vo.Permission" >
     insert into t_permission
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.shsxt.crm.vo.Permission" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.xxxx.crm.vo.Permission" >
     update t_permission
     <set >
       <if test="roleId != null" >
@@ -94,7 +94,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.shsxt.crm.vo.Permission" >
+  <update id="updateByPrimaryKey" parameterType="com.xxxx.crm.vo.Permission" >
     update t_permission
     set role_id = #{roleId,jdbcType=INTEGER},
       module_id = #{moduleId,jdbcType=INTEGER},

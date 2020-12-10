@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.shsxt.crm.dao.ModuleMapper">
-  <resultMap id="BaseResultMap" type="com.shsxt.crm.vo.Module">
+<mapper namespace="com.xxxx.crm.dao.ModuleMapper">
+  <resultMap id="BaseResultMap" type="com.xxxx.crm.vo.Module">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="module_name" jdbcType="VARCHAR" property="moduleName" />
     <result column="module_style" jdbcType="VARCHAR" property="moduleStyle" />
@@ -29,7 +29,7 @@
     delete from t_module
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.shsxt.crm.vo.Module">
+  <insert id="insert" parameterType="com.xxxx.crm.vo.Module">
     insert into t_module (id, module_name, module_style,
       url, parent_id, parent_opt_value,
       grade, opt_value, orders,
@@ -41,7 +41,7 @@
       #{isValid,jdbcType=TINYINT}, #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.shsxt.crm.vo.Module">
+  <insert id="insertSelective" parameterType="com.xxxx.crm.vo.Module">
     insert into t_module
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -120,7 +120,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.shsxt.crm.vo.Module">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xxxx.crm.vo.Module">
     update t_module
     <set>
       <if test="moduleName != null">
@@ -159,7 +159,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.shsxt.crm.vo.Module">
+  <update id="updateByPrimaryKey" parameterType="com.xxxx.crm.vo.Module">
     update t_module
     set module_name = #{moduleName,jdbcType=VARCHAR},
       module_style = #{moduleStyle,jdbcType=VARCHAR},
@@ -175,11 +175,11 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
-  <select id="queryAllModules" resultType="com.shsxt.crm.model.TreeModel">
+  <select id="queryAllModules" resultType="com.xxxx.crm.model.TreeModel">
     select id,module_name name,ifnull(parent_id, 0) pId from t_module where is_valid = 1
   </select>
 
-  <select id="selectByParams" resultType="com.shsxt.crm.vo.Module">
+  <select id="selectByParams" resultType="com.xxxx.crm.vo.Module">
     select <include refid="Base_Column_List"/> from t_module where is_valid = 1
   </select>
 
@@ -194,12 +194,12 @@
   </update>
 
   <!--通过层级与资源名查询-->
-  <select id="queryModuleByGradeAndName" resultType="com.shsxt.crm.vo.Module">
+  <select id="queryModuleByGradeAndName" resultType="com.xxxx.crm.vo.Module">
     select * from t_module where grade = #{grade} and module_name = #{moduleName}
   </select>
 
   <!-- 通过权限码查询 -->
-  <select id="queryModuleByOptValue" parameterType="string" resultType="com.shsxt.crm.vo.Module">
+  <select id="queryModuleByOptValue" parameterType="string" resultType="com.xxxx.crm.vo.Module">
     select * from t_module where opt_value = #{optValue}
   </select>
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.shsxt.crm.dao.RoleMapper" >
-  <resultMap id="BaseResultMap" type="com.shsxt.crm.vo.Role" >
+<mapper namespace="com.xxxx.crm.dao.RoleMapper" >
+  <resultMap id="BaseResultMap" type="com.xxxx.crm.vo.Role" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="role_name" property="roleName" jdbcType="VARCHAR" />
     <result column="role_remark" property="roleRemark" jdbcType="VARCHAR" />
@@ -22,7 +22,7 @@
     delete from t_role
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.shsxt.crm.vo.Role" >
+  <insert id="insert" parameterType="com.xxxx.crm.vo.Role" >
     insert into t_role (id, role_name, role_remark, 
       create_date, update_date, is_valid
       )
@@ -30,7 +30,7 @@
       #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, #{isValid,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.shsxt.crm.vo.Role" >
+  <insert id="insertSelective" parameterType="com.xxxx.crm.vo.Role" >
     insert into t_role
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.shsxt.crm.vo.Role" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.xxxx.crm.vo.Role" >
     update t_role
     <set >
       <if test="roleName != null" >
@@ -94,7 +94,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.shsxt.crm.vo.Role" >
+  <update id="updateByPrimaryKey" parameterType="com.xxxx.crm.vo.Role" >
     update t_role
     set role_name = #{roleName,jdbcType=VARCHAR},
       role_remark = #{roleRemark,jdbcType=VARCHAR},
@@ -125,7 +125,7 @@
         r.is_valid = 1
   </select>
 
-  <select id="selectByParams" parameterType="com.shsxt.crm.query.RoleQuery" resultType="com.shsxt.crm.vo.Role">
+  <select id="selectByParams" parameterType="com.xxxx.crm.query.RoleQuery" resultType="com.xxxx.crm.vo.Role">
     select * from t_role
     <where>
       is_valid = 1
@@ -135,7 +135,7 @@
     </where>
   </select>
 
-  <select id="queryRoleByName" parameterType="string" resultType="com.shsxt.crm.vo.Role">
+  <select id="queryRoleByName" parameterType="string" resultType="com.xxxx.crm.vo.Role">
     select * from t_role where role_name = #{roleName}
   </select>
 

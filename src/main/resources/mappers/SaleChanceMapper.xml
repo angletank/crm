@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.shsxt.crm.dao.SaleChanceMapper" >
-  <resultMap id="BaseResultMap" type="com.shsxt.crm.vo.SaleChance" >
+<mapper namespace="com.xxxx.crm.dao.SaleChanceMapper" >
+  <resultMap id="BaseResultMap" type="com.xxxx.crm.vo.SaleChance" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="chance_source" property="chanceSource" jdbcType="VARCHAR" />
     <result column="customer_name" property="customerName" jdbcType="VARCHAR" />
@@ -33,7 +33,7 @@
     delete from t_sale_chance
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.shsxt.crm.vo.SaleChance" >
+  <insert id="insert" parameterType="com.xxxx.crm.vo.SaleChance" >
     insert into t_sale_chance (id, chance_source, customer_name, 
       cgjl, overview, link_man, 
       link_phone, description, create_man, 
@@ -48,7 +48,7 @@
       #{devResult,jdbcType=INTEGER}, #{isValid,jdbcType=INTEGER}, #{createDate,jdbcType=TIMESTAMP}, 
       #{updateDate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.shsxt.crm.vo.SaleChance" >
+  <insert id="insertSelective" parameterType="com.xxxx.crm.vo.SaleChance" >
     insert into t_sale_chance
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -151,7 +151,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.shsxt.crm.vo.SaleChance" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.xxxx.crm.vo.SaleChance" >
     update t_sale_chance
     <set >
       <if test="chanceSource != null" >
@@ -200,7 +200,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.shsxt.crm.vo.SaleChance" >
+  <update id="updateByPrimaryKey" parameterType="com.xxxx.crm.vo.SaleChance" >
     update t_sale_chance
     set chance_source = #{chanceSource,jdbcType=VARCHAR},
       customer_name = #{customerName,jdbcType=VARCHAR},
@@ -221,7 +221,7 @@
   </update>
 
   <!-- 多条件查询营销机会 -->
-  <select id="querySaleChanceByParams" parameterType="com.shsxt.crm.query.SaleChanceQuery" resultType="com.shsxt.crm.vo.SaleChance">
+  <select id="querySaleChanceByParams" parameterType="com.xxxx.crm.query.SaleChanceQuery" resultType="com.xxxx.crm.vo.SaleChance">
     select s.*,u.user_name as uname from t_sale_chance s left join t_user u on s.assign_man = u.id
     <where>
       s.is_valid = 1

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.shsxt.crm.dao.UserMapper">
-  <resultMap id="BaseResultMap" type="com.shsxt.crm.vo.User">
+<mapper namespace="com.xxxx.crm.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.xxxx.crm.vo.User">
     <id column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="user_pwd" jdbcType="VARCHAR" property="userPwd" />
@@ -20,7 +20,7 @@
   </select>
 
   <!-- 通过用户名查询用户对象，返回用户对象 -->
-  <select id="queryUserByName" parameterType="string" resultType="com.shsxt.crm.vo.User">
+  <select id="queryUserByName" parameterType="string" resultType="com.xxxx.crm.vo.User">
     select * from t_user where user_name = #{userName}
   </select>
 
@@ -42,7 +42,7 @@
     where u.is_valid = 1 and r.is_valid = 1 and r.role_name = '销售'
   </select>
 
-  <select id="selectByParams" parameterType="com.shsxt.crm.query.UserQuery" resultType="com.shsxt.crm.vo.User">
+  <select id="selectByParams" parameterType="com.xxxx.crm.query.UserQuery" resultType="com.xxxx.crm.vo.User">
     select
         *
     from
@@ -70,7 +70,7 @@
           useGeneratedKeys ，取值范围true|false(默认值)，设置是否使用JDBC的getGenereatedKeys方法获取主键并赋值到keyProperty设置的领域模型属性中。
           keyProperty ，默认值unset，用于设置getGeneratedKeys方法或selectKey子元素返回值将赋值到领域模型的哪个属性中
     -->
-  <insert id="insertSelective" parameterType="com.shsxt.crm.vo.User" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+  <insert id="insertSelective" parameterType="com.xxxx.crm.vo.User" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
     insert into
         t_user (user_name, user_pwd, true_name, email, phone, is_valid, create_date, update_date)
     values
@@ -78,7 +78,7 @@
 
   </insert>
 
-  <update id="updateByPrimaryKeySelective" parameterType="com.shsxt.crm.vo.User">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xxxx.crm.vo.User">
     update
         t_user
     set
